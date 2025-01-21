@@ -23,7 +23,7 @@ bot = Main(intents=intents)
 
 @bot.command()
 async def hello( ctx):
-        await ctx.send(f'Hello {ctx.author.mention}')
+        await ctx.reply(f'Hello {ctx.author.mention}')
 
 @bot.command()
 async def show_commands( ctx):
@@ -36,7 +36,7 @@ async def show_commands( ctx):
         "Use `!command_name` to call each command. Enjoy using the bot! 😄"
     )
 
-    await ctx.send(command_list)
+    await ctx.reply(command_list)
 
 
 for filename in os.listdir("./cogs"):

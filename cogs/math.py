@@ -12,7 +12,7 @@ class Math(commands.Cog):
 
     @commands.command()
     async def add(self, ctx, a: int, b: int):
-        await ctx.send(a + b)
+        await ctx.reply(a + b)
 
     @commands.command()
     async def get_mean(self, ctx, *args: int):
@@ -21,7 +21,7 @@ class Math(commands.Cog):
             return
         
         mean = sum(args) / len(args)
-        await ctx.send(f'The mean of numbers {args} is {mean}')
+        await ctx.reply(f'The mean of numbers {args} is {mean}')
 
     @commands.command()
     async def troll(self, ctx, count: int):
