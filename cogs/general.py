@@ -5,11 +5,11 @@ class General(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @bot.command()
+    @commands.command()
     async def hello( ctx):
         await ctx.reply(f'Hello {ctx.author.mention}')
 
-    @bot.command()
+    @commands.command()
     async def show_commands( ctx):
         command_list = (
             "📋 **Available Commands**:\n\n"
@@ -21,6 +21,13 @@ class General(commands.Cog):
         )
         await ctx.reply(command_list)
     
+    @commands.command()
+    async def troll(self, ctx, count: int):
+        if str(ctx.author.id) != user_id:
+            await ctx.reply(f'{ctx.author.mention}, You are not allowed to use this command')
+            return
+        for i in range(count):
+            await ctx.send(f'Spamming messages...{i}x')
 
 def setup(bot):
     bot.add_cog(General(bot)) 

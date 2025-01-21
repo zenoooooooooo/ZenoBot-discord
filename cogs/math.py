@@ -23,13 +23,6 @@ class Math(commands.Cog):
         mean = sum(args) / len(args)
         await ctx.reply(f'The mean of numbers {args} is {mean}')
 
-    @commands.command()
-    async def troll(self, ctx, count: int):
-        if str(ctx.author.id) != user_id:
-            await ctx.reply(f'{ctx.author.mention}, You are not allowed to use this command')
-            return
-        for i in range(count):
-            await ctx.send(f'Spamming messages...{i}x')
 
 def setup(bot):
     bot.add_cog(Math(bot)) 
