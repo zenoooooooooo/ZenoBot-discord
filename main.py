@@ -14,6 +14,9 @@ class Main(commands.Bot):
     async def on_ready(self):
         print('Bot is now ready to do anything!')
 
+    async def on_message(self, message):
+        print(f'{message.author} said: {message.content}')
+
 
 intents = discord.Intents.default()
 intents.messages = True 
