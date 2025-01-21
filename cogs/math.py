@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class Commands(commands.Cog):
+class Math(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -18,5 +18,10 @@ class Commands(commands.Cog):
         mean = sum(args) / len(args)
         await ctx.send(f'The mean of numbers {args} is {mean}')
 
+    @commands.command()
+    async def troll(self, ctx, count: int):
+        for i in range(count):
+            await ctx.send(f'{i + 1}. Spamming messages...')
+
 def setup(bot):
-    bot.add_cog(Commands(bot)) 
+    bot.add_cog(Math(bot)) 
