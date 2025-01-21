@@ -2,7 +2,7 @@ import discord
 import requests
 from discord.ext import commands
 
-class Memes(commands.Cog):
+class Api(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -16,5 +16,12 @@ class Memes(commands.Cog):
             await ctx.reply(f'r/{subreddit}\n{title}')
             await ctx.send(image_url)
 
+    @commands.command()
+    async def send_quote(self, ctx):
+        response = requests.get('https://quotes-api-self.vercel.app/quote')
+        quote = response.json()['quote']
+        author = response.json()['author']
+        await ctx.reply(f'{quote}\n~ {author}')
+
 def setup(bot):
-    bot.add_cog(Memes(bot)) 
+    bot.add_cog(Api(bot)) 
