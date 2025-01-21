@@ -21,5 +21,9 @@ class General(commands.Cog):
     async def ping(self, ctx):
         await ctx.reply(f'Pong! {round(self.bot.latency * 1000)}ms')
 
+    @commands.command()
+    async def show_repo(self, ctx):
+        await ctx.reply('The code repository of this chatbot is on https://github.com/zenoooooooooo/ZenoBot-discord')
+        
 def setup(bot):
     bot.add_cog(General(bot)) 
